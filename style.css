@@ -1,0 +1,373 @@
+/* --- 1. Thiết lập chung & Biến màu sắc --- */
+:root {
+    --primary-color: #2c2c2c;
+    --accent-color: #8c3b28;
+    --bg-color: #fcfbfa;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --light-gray: #e0e0e0;
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- 2. Header & Navigation (Thanh điều hướng) --- */
+.site-header {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .site-name {
+    color: #ffffff;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+}
+
+.site-header .tagline {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-top: 0.4rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* --- 3. Bố cục tổng thể (Layout Responsive - Chia cột Grid) --- */
+.layout {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+/* Responsive cho màn hình từ máy tính bảng trở lên (Tablet & Desktop) */
+@media (min-width: 768px) {
+    .layout {
+        grid-template-columns: 3fr 1fr; /* Chia phần Main chiếm 3 phần, Sidebar chiếm 1 phần */
+    }
+}
+
+/* --- 4. Nội dung bài viết & Các khối Section --- */
+main article, main section {
+    background: var(--card-bg);
+    padding: 2.2rem;
+    margin-bottom: 2.2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+}
+
+h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 0.6rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+figcaption {
+    font-size: 0.88rem;
+    color: #666;
+    margin-top: 0.6rem;
+    font-style: italic;
+}
+
+/* --- 5. Danh sách giá trị cốt lõi (Grid Responsive) --- */
+.value-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+@media (min-width: 600px) {
+    .value-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 cột trên màn hình rộng */
+    }
+}
+
+.value-card {
+    background: #fdfbfb;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+    border-top: 1px solid var(--light-gray);
+    border-right: 1px solid var(--light-gray);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.value-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.value-card p {
+    font-size: 0.92rem;
+    margin-bottom: 0;
+    color: #555;
+}
+
+/* --- 6. Danh sách đội ngũ (Team Responsive) --- */
+.team-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+}
+
+@media (min-width: 600px) {
+    .team-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 cột chia đều cho 3 thành viên */
+    }
+}
+
+.member {
+    text-align: center;
+    background: #fdfdfd;
+    padding: 1.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    transition: transform 0.2s ease;
+}
+
+.member:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+.member img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%; /* Bo tròn ảnh thành viên */
+    margin-bottom: 0.9rem;
+    border: 3px solid var(--accent-color);
+}
+
+.member h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+}
+
+.member p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* --- 7. Form liên hệ --- */
+.contact-form p {
+    margin-bottom: 1.2rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.85rem;
+    margin-top: 0.4rem;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(140, 59, 40, 0.1);
+}
+
+.contact-form button {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+}
+
+@media (min-width: 500px) {
+    .contact-form button {
+        width: auto;
+    }
+}
+
+.contact-form button:hover {
+    background-color: #6f2d1e;
+}
+
+/* --- 8. Sidebar --- */
+.sidebar {
+    background: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    height: fit-content;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul.recent {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar ul.recent li {
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px dashed var(--light-gray);
+}
+
+.sidebar ul.recent a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.93rem;
+    transition: color 0.2s ease;
+}
+
+.sidebar ul.recent a:hover {
+    color: var(--accent-color);
+}
+
+.sidebar p {
+    font-size: 0.92rem;
+}
+
+.sidebar p a {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sidebar p a:hover {
+    text-decoration: underline;
+}
+
+/* --- 9. Footer (Chân trang) --- */
+.site-footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 3.5rem 1.5rem 1.8rem;
+    margin-top: 4rem;
+}
+
+.footer-cols {
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .footer-cols {
+        grid-template-columns: repeat(4, 1fr); /* 4 cột cân đối ở footer trên desktop */
+    }
+}
+
+.footer-cols h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    color: #ffccbc;
+}
+
+.footer-cols p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    color: #888;
+    font-size: 0.88rem;
+}
